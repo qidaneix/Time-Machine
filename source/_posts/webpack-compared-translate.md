@@ -17,7 +17,7 @@ categories:
 
 &emsp;&emsp;JavaScript代码的管理问题因单页面应用（single page applications，SPAs）的出现而变得愈发严峻，因为这些单页面应用往往依赖大量的大型第三方包。现在已经有了一些解决如何处理这些第三方包加载问题的办法。你可以在页面打开时将它们全部加载，你也可以在需要使用某些第三方包时将它们单独加载。有如此多的加载方式可以使用，而Webpack为多数方式提供支持。
 
-&emsp;&emsp;Node.js和npm（Node.js package manager）的流行为前端的依赖管理提供了更多的依据。在npm流行之前，前段代码的依赖管理是一件非常困难的事。曾经有一段时间人们开发了前端特定的包管理器（bower——译者注），但npm最终胜出。如今前端代买的依赖管理比先前要简单容易很多，但是仍然有许多挑战需要克服。
+&emsp;&emsp;Node.js和npm（Node.js package manager）的流行为前端的依赖管理提供了更多的依据。在npm流行之前，前段代码的依赖管理是一件非常困难的事。曾经有一段时间人们开发了前端特定的包管理器（bower——译者注），但npm最终胜出。如今前端的依赖管理比先前要简单容易很多，但是仍然有许多挑战需要克服。
 
 ## 任务执行工具（Task Runners）和打包工具（Bundlers）
 &emsp;&emsp;在前端发展历史上，出现了很多构建工具。*Make*也许是最为有名的，并且仍然是一个可行的选择。特定的任务执行工具，比如Grunt和Gulp，是专门给前端程序员开发的工具。npm为这两个工具提供了大量插件，使得这两个工具具备强大的功能和拓展能力。
@@ -31,7 +31,7 @@ categories:
 - [AssetGraph](https://www.npmjs.com/package/assetgraph)采取了完全不同的实现，并且它建立在试验和真实的HTML语义之上，使它对[超链接分析](https://www.npmjs.com/package/hyperlink)或[结构分析](https://www.npmjs.com/package/assetviz)等任务非常有用。
 - [FuseBox](https://github.com/fuse-box/fuse-box)是一个注重速度的打包工具。它使用零配置实现，目的是开箱即用。
 
-&emsp;&emsp;我将详细介绍下面的主要项目。
+我将详细介绍下面的主要项目。
 ### Make
 &emsp;&emsp;Make是一个老工具，最初版本在1977年发布。即使它是一个旧工具，它与打包工具仍然相关。Make允许你为各种不同目的编写分离的任务。例如，你可能有单独的任务用于创建生产构建、压缩JavaScript代码或运行测试程序。你可以在许多其他的工具当中发现相同的思想。
 &emsp;&emsp;虽然Make大部分时候用于C语言工项目，但它并非仅限于此。James Coglan详细讨论了[如何在JavaScript中使用Make](https://blog.jcoglan.com/2014/02/05/building-javascript-projects-with-make/)。参考在Jame的博文中的实现代码如下：
@@ -70,7 +70,7 @@ clean:
 ![Grunt](http://survivejs.com/webpack/images/grunt.png)
 &emsp;&emsp;Grunt在Gulp之前成为主流。 尤其是它的插件架构对于其流行有巨大贡献。 但插件通常本身很复杂。 因此，当配置增长时，可能变得难以理解发生了什么。
 
-&emsp;&emsp;下面是一个来自[Grunt文档](http://gruntjs.com/sample-gruntfile)的示例。在这个配置中，我们定义了一个linting和一个watcher任务。 当watch任务运行时，它也将触发lint任务。这样，当我们运行Grunt时，如果我们编辑我们的源代码，我们将会在我们的终端实时的收到警告。
+&emsp;&emsp;下面是一个来自[Grunt文档](http://gruntjs.com/sample-gruntfile)的示例。在这个配置中，我们定义了一个linting和一个watcher任务。当watch任务运行时，它也将触发lint任务。这样，当我们运行Grunt时，如果我们编辑我们的源代码，我们将会在我们的终端实时的收到警告。
 #### Gruntfile.js
 ```javascript
 module.exports = function(grunt) {
@@ -97,10 +97,110 @@ module.exports = function(grunt) {
 ```
 &emsp;&emsp;实际上，为了特定目的，例如构建项目，您将有许多这样的小任务。 Grunt的能力的一个重要部分是它为你隐藏了很多的接线。
 
-然而，做的太过也会产生问题。程序员可能变得很难彻底地了解Grunt内部发生了什么。 这是从Grunt吸取的构架教训。
+&emsp;&emsp;然而，做的太过也会产生问题。程序员可能变得很难彻底地了解Grunt内部发生了什么。 这是从Grunt吸取的构架教训。
 
 >注意到grunt-webpack插件允许你Grunt环境下在使用Webpack。 你可以将留给繁重的任务留给Webpack。
 
 ### Gulp
+![Gulp](http://survivejs.com/webpack/images/gulp.png)
+&emsp;&emsp;[Gulp](http://gulpjs.com/)采取了一种不同的实现方式。使用Gulp你处理的是真实的代码，而不是依赖于每一个插件配置。Gulp建立在管道（piping）的概念之上。如果你熟悉Unix，Gulp与Unix的思路相似。有下面这些概念：
+- *Sources*对应于各个文件；
+- *Filters*用于对Sources执行操作（例如，转换为JavaScript）;
+- *Slinks* （例如，你的构建目录）输出构建结果的位置。
+
+&emsp;&emsp;下面提供了一个帮助你更好理解Gulp实现的*Gulpfile*的例子，来自Gulp工程的README。它被缩写为一个切口：
+#### Gulpfile.js
+```javascript
+const gulp = require('gulp');
+const coffee = require('gulp-coffee');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const sourcemaps = require('gulp-sourcemaps');
+const del = require('del');
+
+const paths = {
+  scripts: ['client/js/**/*.coffee', '!client/external/**/*.coffee']
+};
+
+// Not all tasks need to use streams.
+// A gulpfile is just another node program
+// and you can use all packages available on npm.
+gulp.task('clean', del.bind(null, ['build']);
+
+gulp.task('scripts', ['clean'], function() {
+  // Minify and copy all JavaScript (except vendor scripts)
+  // with sourcemaps all the way down.
+  return gulp.src(paths.scripts)
+    // Pipeline within pipeline
+    .pipe(sourcemaps.init())
+      .pipe(coffee())
+      .pipe(uglify())
+      .pipe(concat('all.min.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('build/js'));
+});
+
+// Rerun the task when a file changes.
+gulp.task('watch', gulp.watch.bind(null, paths.scripts, ['scripts']));
+
+// The default task (called when you run `gulp` from CLI).
+gulp.task('default', ['watch', 'scripts']);
+```
+&emsp;&emsp;gulp由代码提供配置，这样，当代码出现错误时，你就可以跟踪调试它们。你可以将现有的Node.js包封装为Gulp插件等等。相比较于Grunt，你会对（配置代码）发生了什么有一个更清楚的认识。然而你还是要为了一些临时的任务写许多的样板。但这就是一些比较新的办法。
+
+>[webpack-stream](https://www.npmjs.com/package/webpack-stream)允许你在Gulp环境中使用Webpack。
+>[Fly](https://github.com/bucaran/fly)是一个和Gulp相似的工具。它依赖于ES6生成器。
+
+### Browserify
+![Browserify](http://survivejs.com/webpack/images/browserify.png)
+&emsp;&emsp;如何处理JavaScript模块是个困难。在ES6之前，JavaScript语言本身实际上没有“模块”的概念。因此，当处在浏览器环境中时，我们总是感觉被困在90年代。因此，人们提出了包括[AMD](http://requirejs.org/docs/whyamd.html)在内的各种解决方案.
+
+&emsp;&emsp;在实践当中，只有CommonJs这种解决方案在Node.js的格式中最为有用，并且让工具处理其余的工作。（CommonJS）的优点是你可以钩在npm上，避免重复早轮子。
+
+&emsp;&emsp;Browserify是解决模块化问题的一种方案。它提供了一种将CommonJS模块捆绑在一起的方法。你可以用Gulp将它挂载。有更小的允许你跨越基本用法的转换工具。例如，[watchify](https://www.npmjs.com/package/watchify)提供了一个可以在你开发过程中生成捆绑的文件监视器。这样做会节省不少麻烦，毫无疑问是一种非常好的解决方案。
+
+&emsp;&emsp;Browserify生态系统由很多小模块组成。Browserify以此坚持Unix的理念。 Browserify比Webpack更容易使用，事实上，它是一个很好的Webpack的替代品。
+
+>[Splittable](https://github.com/cramforce/splittable)是一个允许代码拆分的Browserify包装器，支持ES6开箱，树摇动，等等。
+
+### Brunch
+![Brunch](http://survivejs.com/webpack/images/brunch.png)
+&emsp;&emsp;与Gulp相比，Brunch运行在一个更高层次的抽象上。它使用类似于webpack的声明式方法。为了给你一个例子，从Brunch网站改编的以下配置可供参考：
+```javascript
+module.exports = {
+  files: {
+    javascripts: {
+      joinTo: {
+        'vendor.js': /^(?!app)/,
+        'app.js': /^app/
+      }
+    },
+    stylesheets: {
+      joinTo: 'app.css'
+    }
+  },
+  plugins: {
+    babel: {
+      presets: ['es2015', 'react']
+    },
+    postcss: {
+      processors: [require('autoprefixer')]
+    }
+  }
+};
+```
+&emsp;&emsp;Brunch使用类似于`brunch new`、`brunch watch --server`和`brunch build --production`这样的指令实现。它包含很多可以对功能进行扩展的开箱即用（out of box）的插件。
+
+>这里有一个对Brunch[热模块重加载运行](https://github.com/brunch/hmr-brunch)的试验。
+
+### JSPM
+![JSPM](http://survivejs.com/webpack/images/jspm.png)
+JSPM的使用方法与先前的工具非常不同。它自带了一个很小的CLI工具，这个CLI工具可以用于安装新的包到项目，创建一个生产捆绑等等。 它支持SystemJS插件，SystemJS插件允许您将各种格式加载到项目中。
+
+鉴于JSPM仍然是一个年轻的项目，可能有粗糙的点。也就是说，如果你富于冒险精神，它可能值得一看。如你所知，在前端开发领域，工具经常发生变化，而JSPM绝对是一个重量级的竞争对手。
+
+### Webpack
+![Webpack](http://survivejs.com/webpack/images/webpack.png)
+
 
 ...未完待续
