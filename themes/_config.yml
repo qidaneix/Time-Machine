@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `hexo-site/source/` directory.
-favicon: /sb.jpg
+favicon: /clock.png
 
 # Set default keywords (Use a comma to separate)
 keywords: "Hexo, NexT"
@@ -28,7 +28,7 @@ copyright: true
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: false
+seo: ture
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -247,7 +247,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night bright
+highlight_theme: night eighties
 
 
 # ---------------------------------------------------------------
@@ -361,7 +361,7 @@ busuanzi_count:
   # custom pv span for one page only
   page_pv: true
   page_pv_header: 阅读量
-  page_pv_footer: 
+  page_pv_footer:
 
 
 # Tencent analytics ID

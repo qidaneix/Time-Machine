@@ -10,7 +10,7 @@ categories:
 ---
 
 # Webpack比较
-#### 这篇博文是文章[Webpack Compared](http://survivejs.com/webpack/webpack-compared/)的中文翻译
+*这篇博文是文章[Webpack Compared](http://survivejs.com/webpack/webpack-compared/)的中文翻译*
 * * *
 
 &emsp;&emsp;如果你把Webpack放在前段发展历史的角度来看，就能更好的理解为什么Webpack是如此强大。在早些时候，我们仅需要将一些脚本连接在一起就足够了。然而，随着时间的变化，到如今，配置管理你的JavaScript代码变成了一项繁重的任务。
@@ -32,10 +32,10 @@ categories:
 - [FuseBox](https://github.com/fuse-box/fuse-box)是一个注重速度的打包工具。它使用零配置实现，目的是开箱即用。
 
 我将详细介绍下面的主要项目。
-### Make
+## Make
 &emsp;&emsp;Make是一个老工具，最初版本在1977年发布。即使它是一个旧工具，它与打包工具仍然相关。Make允许你为各种不同目的编写分离的任务。例如，你可能有单独的任务用于创建生产构建、压缩JavaScript代码或运行测试程序。你可以在许多其他的工具当中发现相同的思想。
 &emsp;&emsp;虽然Make大部分时候用于C语言工项目，但它并非仅限于此。James Coglan详细讨论了[如何在JavaScript中使用Make](https://blog.jcoglan.com/2014/02/05/building-javascript-projects-with-make/)。参考在Jame的博文中的实现代码如下：
-#### Makefile
+### Makefile
 ```shell
 PATH  := node_modules/.bin:$(PATH)
 SHELL := /bin/bash
@@ -66,12 +66,12 @@ clean:
 ```
 使用Make，你可以使用Make特定的语法和终端命令建模任务。 这允许它轻松地与Webpack集成。
 
-### Grunt
+## Grunt
 ![Grunt](http://survivejs.com/webpack/images/grunt.png)
 &emsp;&emsp;Grunt在Gulp之前成为主流。 尤其是它的插件架构对于其流行有巨大贡献。 但插件通常本身很复杂。 因此，当配置增长时，可能变得难以理解发生了什么。
 
 &emsp;&emsp;下面是一个来自[Grunt文档](http://gruntjs.com/sample-gruntfile)的示例。在这个配置中，我们定义了一个linting和一个watcher任务。当watch任务运行时，它也将触发lint任务。这样，当我们运行Grunt时，如果我们编辑我们的源代码，我们将会在我们的终端实时的收到警告。
-#### Gruntfile.js
+### Gruntfile.js
 ```javascript
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
 >注意到grunt-webpack插件允许你Grunt环境下在使用Webpack。 你可以将留给繁重的任务留给Webpack。
 
-### Gulp
+## Gulp
 ![Gulp](http://survivejs.com/webpack/images/gulp.png)
 &emsp;&emsp;[Gulp](http://gulpjs.com/)采取了一种不同的实现方式。使用Gulp你处理的是真实的代码，而不是依赖于每一个插件配置。Gulp建立在管道（piping）的概念之上。如果你熟悉Unix，Gulp与Unix的思路相似。有下面这些概念：
 - *Sources*对应于各个文件；
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
 - *Slinks* （例如，你的构建目录）输出构建结果的位置。
 
 &emsp;&emsp;下面提供了一个帮助你更好理解Gulp实现的*Gulpfile*的例子，来自Gulp工程的README。它被缩写为一个切口：
-#### Gulpfile.js
+### Gulpfile.js
 ```javascript
 const gulp = require('gulp');
 const coffee = require('gulp-coffee');
@@ -151,7 +151,7 @@ gulp.task('default', ['watch', 'scripts']);
 >[webpack-stream](https://www.npmjs.com/package/webpack-stream)允许你在Gulp环境中使用Webpack。
 >[Fly](https://github.com/bucaran/fly)是一个和Gulp相似的工具。它依赖于ES6生成器。
 
-### Browserify
+## Browserify
 ![Browserify](http://survivejs.com/webpack/images/browserify.png)
 &emsp;&emsp;如何处理JavaScript模块是个困难。在ES6之前，JavaScript语言本身实际上没有“模块”的概念。因此，当处在浏览器环境中时，我们总是感觉被困在90年代。因此，人们提出了包括[AMD](http://requirejs.org/docs/whyamd.html)在内的各种解决方案.
 
@@ -163,7 +163,7 @@ gulp.task('default', ['watch', 'scripts']);
 
 >[Splittable](https://github.com/cramforce/splittable)是一个允许代码拆分的Browserify包装器，支持ES6开箱，树摇动，等等。
 
-### Brunch
+## Brunch
 ![Brunch](http://survivejs.com/webpack/images/brunch.png)
 &emsp;&emsp;与Gulp相比，Brunch运行在一个更高层次的抽象上。它使用类似于webpack的声明式方法。为了给你一个例子，从Brunch网站改编的以下配置可供参考：
 ```javascript
@@ -193,14 +193,62 @@ module.exports = {
 
 >这里有一个对Brunch[热模块重加载运行](https://github.com/brunch/hmr-brunch)的试验。
 
-### JSPM
+## JSPM
 ![JSPM](http://survivejs.com/webpack/images/jspm.png)
-JSPM的使用方法与先前的工具非常不同。它自带了一个很小的CLI工具，这个CLI工具可以用于安装新的包到项目，创建一个生产捆绑等等。 它支持SystemJS插件，SystemJS插件允许您将各种格式加载到项目中。
+&emsp;&emsp;JSPM的使用方法与先前的工具非常不同。它自带了一个很小的CLI工具，这个CLI工具可以用于安装新的包到项目，创建一个生产捆绑等等。 它支持SystemJS插件，SystemJS插件允许您将各种格式加载到项目中。
 
-鉴于JSPM仍然是一个年轻的项目，可能有粗糙的点。也就是说，如果你富于冒险精神，它可能值得一看。如你所知，在前端开发领域，工具经常发生变化，而JSPM绝对是一个重量级的竞争对手。
+&emsp;&emsp;鉴于JSPM仍然是一个年轻的项目，可能有粗糙的点。也就是说，如果你富于冒险精神，它可能值得一看。如你所知，在前端开发领域，工具经常发生变化，而JSPM绝对是一个重量级的竞争对手。
 
-### Webpack
+## Webpack
 ![Webpack](http://survivejs.com/webpack/images/webpack.png)
+&emsp;&emsp;你可以说[Webpack](https://webpack.js.org/)采用了比Browserify更为整体的解决方案。相比较于Browserify由大量小的工具组成，Webpack提供了一个包含很多开箱即用的功能的核心。这个核心可以使用特定的*加载器（loaders）*和*插件（plugins）*进行拓展。
+
+&emsp;&emsp;它可以控制*解析（resolves）*模块的方式，使其可以适应你的构建以匹配特定的情况，并避开那些不能完美地开箱即用的包。虽然过分依赖Webpack的解析机制并不为人所推荐，但可以提供不同的选项是一件好事。
+
+&emsp;&emsp;Webpack将遍历（traverse）项目中的`require`和`import`语句，并生成你已定义的绑定。加载机制也适用于CSS，并且支持`@import`。还有用于特定任务的插件，例如缩小，本地化，热加载等。
+
+&emsp;&emsp;下面是一个`require（'style-loader！css-loader！./main.css'）`加载*main.css*的内容，并通过CSS和样式加载器从右到左处理它的例子.默认情况下，结果将内联到你的JavaScript代码中，并且鉴于这样做对生产使用并不是很好，将会有一个插件将其提取为单独的文件。
+
+&emsp;&emsp;鉴于这种声明方式将项目源码与Webpack相联系，所以最好在配置时设置加载器。下面是一个改编自9[官方webpack教程](https://webpack.js.org/get-started/)的示例配置：
+### webpack.config.js
+```javascript
+var webpack = require('webpack');
+
+module.exports = {
+  // Where to start bundling
+  entry: {
+    main: './entry.js'
+  },
+  // Where to output
+  output: {
+    // Output to the same directory
+    path: __dirname,
+    // Capture name from the entry using a pattern.
+    filename: '[name].js'
+  },
+  // How to resolve encountered imports
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
+  // What extra processing to perform
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ],
+  // How to adjust module resolution
+  resolve: {
+    // This would be a good place to monkeypatch packages
+    alias: { ... }
+  }
+};
+```
+&emsp;&emsp;给定的配置是用JavaScript编写的，它的可塑性很强。只要是JavaScript，Webpack就可以很好的与之配合。
+
+&emsp;&emsp;配置模型可能使Webpack在有些时候有点不透明，因为它很难理解它在做什么。这对于更复杂的情况尤其如此。 涵盖这些是这本书(《SurviveJS - Webpack》)存在的主要原因之一。
 
 
 ...未完待续
