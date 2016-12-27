@@ -248,7 +248,50 @@ module.exports = {
 ```
 &emsp;&emsp;给定的配置是用JavaScript编写的，它的可塑性很强。只要是JavaScript，Webpack就可以很好的与之配合。
 
-&emsp;&emsp;配置模型可能使Webpack在有些时候有点不透明，因为它很难理解它在做什么。这对于更复杂的情况尤其如此。 涵盖这些是这本书(《SurviveJS - Webpack》)存在的主要原因之一。
+&emsp;&emsp;配置模型可能使Webpack在有些时候有点不透明，因为它很难理解它在做什么。这对于更复杂的情况尤其如此。 涵盖这些是这本书(《SurviveJS - Webpack》——译者注)存在的主要原因之一。
+
+## Why Webpack?
+&emsp;&emsp;为什么你会使用Webpack而不是类似于Gulp和Grunt这样的任务执行工具？这并不是一个非左即右的命题。 Webpack解决了模块捆绑的困难问题，但不止如此。我选择Webpack是因为它支持**模块热更新（Hot Module Replacement，HMR）**。这是[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)使用的一个特性。我会在接下来向你展示如何设置它。
+
+&emsp;&emsp;你可以依靠任务执行工具来使用Webpack并让它来处理最为困难的部分。社区已经开发了大量的插件来支持这种模式，所以公平的说，Webpack和任务执行工具之间的界限已变得模糊。通常你会设置npm脚本以各种方式调用Webpack，这就足够了。
+
+&emsp;&emsp;对于简单的项目来说可能太过复杂。它是一个功能强大的工具。因此，了解更为轻量级的Wepack的替代品，并根据需求而不是热门程度来选择正确的工具，是更为理智的做法。
+
+&emsp;&emsp;因为模块热更新（HMR）的特性，你会经常见到Webpack，特别是在基于React的项目中。它在一些小的环境中它比其他工具更受欢迎，它几乎已经成为React的事实标准。
+
+## Webpack主要的优秀特性
+&emsp;&emsp;我列举了下面一些Webpack主要的优秀特性。但它的优点不止这些，毕竟他是一个复杂的工具，但这已经足够让你对它蕴藏着什么有一个清晰的了解。
+
+### 模块热更新
+&emsp;&emsp;你也许已经对类似于[LiveReload](http://livereload.com/)和[BrowserSync](http://www.browsersync.io/)这样的工具非常熟悉。这些工具在你对代码做出更改时会自动刷新浏览器。HMR让事情更进一步。在React的情形下，它允许应用程序维持它的状态而不是强制刷新。这听起来很简单，但在实践当中有很大的不同。
+
+&emsp;&emsp;注意到在Browserify中可以通过[livereactload](https://github.com/milankinen/livereactload)实现HMR，因此它不是webpack独有的特性。
+
+### 代码拆分
+&emsp;&emsp;除了HMR特性，Webpack的捆绑打包功能非常丰富强大。它允许你以各种方式拆分代码。你甚至可以在你的应用程序执行时动态加载它们。 这种延迟加载（lazy loading）很方便，特别是对于大型应用程序。你可以根据需要加载依赖项。
+
+&emsp;&emsp;即使小应用程序也可以从代码拆分中受益，因为它允许用户更快地获取到有用的东西。毕竟性能也是一个特性，所以知道基本的技术是值得的。
+
+### 资源哈希
+&emsp;&emsp;使用webpack，您可以轻松地将散列注入每个包名称中（例如，*app.d587bbd6e38337f5accd.js*）。这会让你在进行代码更讯时使客户端上的软件包失效。捆绑分割允许客户端在理想情况下只重新加载一小部分数据。
+
+&emsp;&emsp;不幸的是，这个问题并非如我所想的那简单，但是如果你足够了解可能的设置，它也是可以管理的。
+
+### 加载器和插件
+&emsp;&emsp;所有这些小功能可以叠加起来。惊喜的是，通过这些开箱即用的小工具你就可以做很多事情。并且，如果Webpack缺少某些功能，有很多可用的加载器和插件让你可以做更多事情。
+
+&emsp;&emsp;学习Webpack会有一个明显的学习曲线。即使如此，它是一个值得学习的工具，因为从长远角度来看，它节省了大量的时间和精力。为了更好地了解Webpack与其他工具的区别，可以查看[官方的比较](https://webpack.js.org/get-started/why-webpack/#comparison)。
+
+## 总结
+&emsp;&emsp;Webpack解决了均衡分配Web开发的问题。如果你非常熟悉它的话，它会帮助你节省大量的时间，虽然你需要花一些时间来学习使用它。不要直接研究一个复杂的基于webpack的样例，应该多花些时间在更基础的设置上，并开发自己的Webpack。在此之后，这些设置将更为有意义。
+
+&emsp;&emsp;在以下章节中，我们将更详细地研究webpack，你将会学习开发基本的开发内容和构建配置。 后面的章节深入探讨更高级的话题。 正是由这些构建块，你可以用来开发自己的设置。
+
+&emsp;&emsp;你可以依靠其他任务执行工具来配合使用Webpack，这不能解决所有问题。但是它确实解决了依赖绑定的困难问题，这样我们在开发过程中少了一个要担心的事情。我们很快就会看到，只需要使用*package.json*，`scripts`和Webpack就足够了。
 
 
-...未完待续
+
+*附上一张知乎上的图片，为区分webpack和其他前端工具提供参考。*
+>![各种前端工具比较](https://pic4.zhimg.com/v2-ae9253e557d902369b1beaed998061cb_b.jpg)
+
+**图片和文字归原作者所有，侵删**
