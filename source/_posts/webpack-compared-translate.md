@@ -209,7 +209,7 @@ module.exports = {
 
 &emsp;&emsp;下面是一个`require（'style-loader！css-loader！./main.css'）`加载*main.css*的内容，并通过CSS和样式加载器从右到左处理它的例子.默认情况下，结果将内联到你的JavaScript代码中，并且鉴于这样做对生产使用并不是很好，将会有一个插件将其提取为单独的文件。
 
-&emsp;&emsp;鉴于这种声明方式将项目源码与Webpack相联系，所以最好在配置时设置加载器。下面是一个改编自9[官方webpack教程](https://webpack.js.org/get-started/)的示例配置：
+&emsp;&emsp;鉴于这种声明方式将项目源码与Webpack相联系，所以最好在配置时设置加载器。下面是一个改编自[官方webpack教程](https://webpack.js.org/get-started/)的示例配置：
 ### webpack.config.js
 ```javascript
 var webpack = require('webpack');
