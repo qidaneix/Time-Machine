@@ -360,7 +360,7 @@ busuanzi_count:
   site_pv_footer: 次
   # custom pv span for one page only
   page_pv: true
-  page_pv_header: <i class="fa fa-eye"></i>&emsp;阅读量
+  page_pv_header: <i class="fa fa-eye"></i>&nbsp;阅读量
   page_pv_footer:
 
 
