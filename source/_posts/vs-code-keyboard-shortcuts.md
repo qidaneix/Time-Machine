@@ -3,13 +3,15 @@ title: Windows版VS Code快捷键总结
 date: 2017-02-05 15:38:33
 tags: 
  - Visual Studio Code
- - 快捷键
  - windows
+ - 快捷键
 categories:
  技术周边
 ---
 
 ![VS Code](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSVYw4ZYa_sFVNDU-sZ068rKGmwjlVbQnbiUA6xq4jXhN3qsKglPQ)
+
+**Visual Studio Code**是我现在使用的最频繁的代码编辑器，下面是我翻译的[Windows版VS Code快捷键总结](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)，供大家参考，若有任何错误或问题，欢迎联系我进行改正。
 
 # 常规
 |快捷键|功能|
@@ -82,101 +84,100 @@ categories:
 |`Ctrl+U`|撤销上次的光标操作|
 |`Shift+Alt+I`|在所有选中行结尾插入光标|
 |`Ctrl+I`|选中当前行|
-|`Ctrl+Shift+L`||
-|`Ctrl+F2`||
+|`Ctrl+Shift+L`|选中所有当前选择的事件*|
+|`Ctrl+F2`|选中所有当前文本的事件*|
 |`Shift+Alt+→`|扩展选中范围|
 |`Shift+Alt+←`|收缩选中范围|
-|`Shift+Alt+(drag mouse)`||
-|`Ctrl+Shift+Alt+(arrow key)`||
-|`Ctrl+Shift+Alt+PgUp/PgDown`||
+|`Shift+Alt+(drag mouse)`|块选中*|
+|`Ctrl+Shift+Alt+(arrow key)`|块选中*|
+|`Ctrl+Shift+Alt+PgUp/PgDown`|上页/下页块选中*|
 
 # 富文本编辑
 |快捷键|功能|
 |---|---|
-|`Ctrl+Space`|插入光标|
-|`Ctrl+Shift+Space`|向上/向下插入光标|
-|`Tab`|撤销上次的光标操作|
-|`Shift+Alt+F`|在所有选中行结尾插入光标|
-|`Ctrl+K Ctrl+F`|选中当前行|
-|`F12`||
-|`Alt+F12`||
-|`Ctrl+K F12`|扩展选中范围|
-|`Ctrl+.`|收缩选中范围|
-|`Shift+F12`||
-|`F2`||
-|`Ctrl+Shift+./,`||
-|`Ctrl+K Ctrl+X`||
-|`Ctrl+K M`||
+|`Ctrl+Space`|触发器建议*|
+|`Ctrl+Shift+Space`|触发器参数提示*|
+|`Tab`|Emmet扩展缩写|
+|`Shift+Alt+F`|格式化文档|
+|`Ctrl+K Ctrl+F`|格式化选中内容|
+|`F12`|前往定义*|
+|`Alt+F12`|窥视定义*|
+|`Ctrl+K F12`|打开定义到右侧*|
+|`Ctrl+.`|快速修复*|
+|`Shift+F12`|显示参考|
+|`F2`|重命名符号*|
+|`Ctrl+Shift+./,`|用上一个/下一个值替换|
+|`Ctrl+K Ctrl+X`|修剪结尾空格|
+|`Ctrl+K M`|改变文件语言|
 
 # 编辑器管理
 |快捷键|功能|
 |---|---|
-|`Ctrl+F4 Ctrl+W`|插入光标|
-|`Ctrl+K F`|向上/向下插入光标|
-|`Ctrl+\`|撤销上次的光标操作|
-|`Ctrl+1/2/3`|在所有选中行结尾插入光标|
-|`Ctrl+K Ctrl+←/→`|选中当前行|
-|`Ctrl+Shift+PgUp/PgDown`||
-|`Ctrl+K ←/→`||
+|`Ctrl+F4 Ctrl+W`|关闭编辑器|
+|`Ctrl+K F`|关闭文件夹|
+|`Ctrl+\`|分离编辑器|
+|`Ctrl+1/2/3`|切换至第一、第二、第三个编辑器组|
+|`Ctrl+K Ctrl+←/→`|切换至上一个/下一个编辑器组|
+|`Ctrl+Shift+PgUp/PgDown`|向左/右移动编辑器|
+|`Ctrl+K ←/→`|移动活动状态的编辑器组|
 
 # 文件管理
 |快捷键|功能|
 |---|---|
-|`Ctrl+N`|插入光标|
-|`Ctrl+O`|向上/向下插入光标|
-|`Ctrl+S`|撤销上次的光标操作|
-|`Ctrl+Shift+S`|在所有选中行结尾插入光标|
-|`Ctrl+K S`|选中当前行|
-|`Ctrl+F4`||
-|`Ctrl+K Ctrl+W`||
-|`Ctrl+Shift+T`|扩展选中范围|
-|`Ctrl+K Enter`|收缩选中范围|
-|`Ctrl+Tab`||
-|`Ctrl+Shift+Tab`||
-|`Ctrl+K P`||
-|`Ctrl+K R`||
-|`Ctrl+K O`||
+|`Ctrl+N`|创建新文件|
+|`Ctrl+O`|打开文件|
+|`Ctrl+S`|保存|
+|`Ctrl+Shift+S`|另存为|
+|`Ctrl+K S`|保存所有文件|
+|`Ctrl+F4`|关闭文件|
+|`Ctrl+K Ctrl+W`|关闭所有文件|
+|`Ctrl+Shift+T`|重新打开已关闭的编辑器|
+|`Ctrl+K Enter`|保持开启|
+|`Ctrl+Tab`|打开下一个编辑器|
+|`Ctrl+Shift+Tab`|打开上一个编辑器|
+|`Ctrl+K P`|复制活动状态文件的文件路径|
+|`Ctrl+K R`|在资源管理器中展示活动状态的文件|
+|`Ctrl+K O`|在新的窗口中展示活动状态的文件|
 
 # 展示
 |快捷键|功能|
 |---|---|
-|`F11`|插入光标|
-|`Shift+Alt+1`|向上/向下插入光标|
-|`Ctrl+=/-`|撤销上次的光标操作|
-|`Ctrl+Shift+E`|在所有选中行结尾插入光标|
-|`Ctrl+Shift+F`|选中当前行|
-|`Ctrl+Shift+G`||
-|`Ctrl+Shift+D`||
-|`Ctrl+Shift+X`|扩展选中范围|
-|`Ctrl+Shift+H`|收缩选中范围|
-|`Ctrl+Shift+J`||
-|`Ctrl+Shift+C`||
-|`Ctrl+Shift+U`||
-|`Ctrl+Shift+V`||
-|`Ctrl+K V`||
+|`F11`|触发全屏|
+|`Shift+Alt+1`|触发编辑器布局|
+|`Ctrl+=/-`|放大/缩小编辑器界面|
+|`Ctrl+B`|触发侧边栏显示|
+|`Ctrl+Shift+E`|展示侧边栏资源管理器界面|
+|`Ctrl+Shift+F`|展示侧边栏搜索界面|
+|`Ctrl+Shift+G`|展示侧边栏Git界面|
+|`Ctrl+Shift+D`|展示侧边栏调试界面|
+|`Ctrl+Shift+X`|展示侧边栏拓展插件界面|
+|`Ctrl+Shift+H`|打开侧边栏搜索界面的文件内容替换功能|
+|`Ctrl+Shift+J`|触发详细搜索|
+|`Ctrl+Shift+C`|打开新的命令行终端|
+|`Ctrl+Shift+U`|打开输出面板|
+|`Ctrl+Shift+V`|触发Markdown预览|
+|`Ctrl+K V`|打开Markdown预览至右侧|
 
 # 调试
 |快捷键|功能|
 |---|---|
-|`F9`|插入光标|
-|`F5`|向上/向下插入光标|
-|`Shift+F5`|撤销上次的光标操作|
-|`F11/Shift+F11`|在所有选中行结尾插入光标|
-|`F10`|选中当前行|
-|`Ctrl+K Ctrl+I`||
+|`F9`|触发断点|
+|`F5`|开始/继续|
+|`Shift+F5`|停止|
+|`F11/Shift+F11`|跳入/跳出|
+|`F10`|跳过|
+|`Ctrl+K Ctrl+I`|显示悬停|
 
 # 集成终端
 |快捷键|功能|
 |---|---|
-|``Ctrl+` ``|插入光标|
-|``Ctrl+Shift+` ``|向上/向下插入光标|
-|`Ctrl+Shift+C`|撤销上次的光标操作|
-|`Ctrl+Shift+V`|在所有选中行结尾插入光标|
-|`Ctrl+↑/↓`|选中当前行|
-|`Shift+PgUp/PgDown`||
-|`Ctrl+Home/End`||
+|``Ctrl+` ``|打开集成终端|
+|``Ctrl+Shift+` ``|打开新的集成终端|
+|`Ctrl+Shift+C`|复制集成终端中的选中内容|
+|`Ctrl+Shift+V`|将内容粘贴到活动的集成终端|
+|`Ctrl+↑/↓`|向上/向下滚动|
+|`Shift+PgUp/PgDown`|向上/向下整页滚动|
+|`Ctrl+Home/End`|滚动到顶/底|
 
-# 补充
-|快捷键|功能|
-|---|---|
-|`Alt+Shift+F`|格式化代码|
+
+**表示存留问题的翻译*

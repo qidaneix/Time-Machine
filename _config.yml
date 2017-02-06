@@ -5,8 +5,8 @@
 # Site
 title: time machine
 subtitle: 时光机
-description: 人生苦短，来日方长
-author: xiaodabao
+description: 我觉得我还需要学习一点人生的经验
+author: 肖大宝
 language: zh-Hans
 timezone:
 avatar: /images/sb.jpg
@@ -72,7 +72,7 @@ deploy:
   type: git
   repo: https://github.com/qidaneix/qidaneix.github.io.git
   branch: master
-  message: 
+  message:
 
 #duoshuo_commit
 duoshuo_shortname: xiaodabao
