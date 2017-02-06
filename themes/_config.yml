@@ -28,7 +28,7 @@ copyright: true
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: ture
+seo: true
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -169,7 +169,7 @@ toc:
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-#creative_commons: by-nc-sa
+creative_commons: by-nc-sa
 #creative_commons:
 
 
@@ -190,11 +190,20 @@ sidebar:
 
 
 # Blogrolls
-links_title: 友情链接
+links_title: 常用链接
 #links_layout: block
-#links_layout: inline
-#links:
-  #Title: http://example.com/
+links_layout: inline
+links:
+  淘宝FED: http://taobaofed.org/
+  新浪UED: http://ued.sina.com/
+  百度UED: http://ued.baidu.com/
+  百度FEX: http://fex.baidu.com/
+  携程UED: http://ued.ctrip.com/
+  网易UED: http://uedc.163.com/
+  腾讯CDC: http://cdc.tencent.com/
+  腾讯AlloyTeam: http://www.alloyteam.com/
+  360奇舞团: https://75team.com/
+  饿了么大前端: https://fe.ele.me/
 
 
 # ---------------------------------------------------------------
@@ -210,7 +219,7 @@ excerpt_description: true
 # Automatically Excerpt. Not recommand.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
+  enable: true
   length: 150
 
 # Post meta display settings
