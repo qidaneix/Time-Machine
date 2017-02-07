@@ -1,10 +1,10 @@
 ---
 title: 这是我的第一篇独立博客
 date: 2016-12-21 12:08:03
-categories:
- 生活随笔
 tags:
  诗
+categories:
+ 生活随笔
 ---
 
 ## 江雪
