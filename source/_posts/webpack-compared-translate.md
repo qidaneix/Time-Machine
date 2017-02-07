@@ -292,6 +292,6 @@ module.exports = {
 
 
 *附上一张知乎上的图片，为区分webpack和其他前端工具提供参考。*
->![各种前端工具比较](https://pic4.zhimg.com/v2-ae9253e557d902369b1beaed998061cb_b.jpg)
+>![各种前端工具比较](http://oiml7svqr.bkt.clouddn.com/v2-ae9253e557d902369b1beaed998061cb_b.jpg)
 
 **图片和文字归原作者所有，侵删**
