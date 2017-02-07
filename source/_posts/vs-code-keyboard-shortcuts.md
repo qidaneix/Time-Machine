@@ -3,7 +3,7 @@ title: Windows版VS Code快捷键总结
 date: 2017-02-05 15:38:33
 tags: 
  - Visual Studio Code
- - windows
+ - Windows
  - 快捷键
 categories:
  技术周边
