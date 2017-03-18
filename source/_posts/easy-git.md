@@ -57,12 +57,8 @@ categories:
 18. 刷新github新建库的界面，可以看到本地的内容已经提交到托管平台了
 ![step-17](http://oiml7svqr.bkt.clouddn.com/step-17.png)
 19. 一般都会给库新建一个README.md文件作为库的说明页面，在本地新建README.md文件写入(这里写你自己想写的内容)：
-```
-# ES3ES5ES6-learn
-《ES3/ES5/ES6学习》相关课件
-```
-![step-18](http://oiml7svqr.bkt.clouddn.com/step-18.png)
 ![step-19](http://oiml7svqr.bkt.clouddn.com/step-19.png)
+![step-18](http://oiml7svqr.bkt.clouddn.com/step-18.png)
 20. 执行`git add *`，`git commit -m '提交README.md'`，`git push -u origin master`三个命令，完成将README.md提交到托管平台
 ![step-20](http://oiml7svqr.bkt.clouddn.com/step-20.png)
 21. 刷新github库界面，可以看到界面底部已经有介绍内容
