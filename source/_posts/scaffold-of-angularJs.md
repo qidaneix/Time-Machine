@@ -24,7 +24,7 @@ categories:
 * 使用angular1（angular@1.6.2）作为项目主框架，并包含jQuery（jquery@3.1.1）、bootstrap库作为辅助工具；
 * 使用bootstrap-sass（bootstrap-sass@3.3.7）作为css框架，可以覆盖bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss文件中的默认配置，从而自定义样式；
 * 整合angular-ui-router作为路由管理；
-* 整合font-awesome开源图标库；；=
+* 整合font-awesome开源图标库；
 * 使用webpack2（webpack@2.2.1）前端模块化开发工具作为项目自动化构建与开发工具；
 * 使用webpack-dev-server作为开发过程工具（热替换HMR）；
 * 分别使用webpack.config.js与webpack.production.config.js两个webpack配置文件作为项目在开发环境中的配置和项目在生产环境中的配置。
